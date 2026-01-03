@@ -39,7 +39,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - name: Setup gcloud CLI
         uses: google-github-actions/setup-gcloud@v2
@@ -68,6 +69,8 @@ jobs:
         env:
           TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
           TF_VAR_organization_id: ${{ secrets.GCP_ORGANIZATION_ID }}
+          TF_VAR_github_repository: ${{ secrets.REPOSITORY }}
+          TF_VAR_github_owner: ${{ secrets.OWNER }}
 
       - name: Update Pull Request
         uses: actions/github-script@v7
@@ -107,5 +110,8 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
         env:
+          TF_VAR_github_repository: ${{ secrets.REPOSITORY }}
+          TF_VAR_github_owner: ${{ secrets.OWNER }}
           TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+          TF_VAR_organization_id: ${{ secrets.GCP_ORGANIZATION_ID }}
           TF_VAR_organization_id: ${{ secrets.GCP_ORGANIZATION_ID }}

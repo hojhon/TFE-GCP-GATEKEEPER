@@ -1,7 +1,7 @@
-# module "org_constraints" {
-#   source = "./org-policy-constraints"
-#   organization_id = var.organization_id
-# }
+module "org_constraints" {
+  source = "./org-policy-constraints"
+  organization_id = var.organization_id
+}
 module "iam" {
   source = "./iam"
   organization_id = var.organization_id
