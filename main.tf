@@ -1,8 +1,8 @@
-# Organization Policy Constraints
-# module "org_constraints" {
-#   source = "./org-policy-constraints"
-#   organization_id = var.organization_id
-# }
+#Organization Policy Constraints
+module "org_constraints" {
+  source = "./org-policy-constraints"
+  organization_id = var.organization_id
+}
 
 # Workload Identity for GitHub Actions  
 module "workload_identity" {

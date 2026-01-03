@@ -3,7 +3,7 @@ output "workload_identity_provider" {
   value       = module.workload_identity.workload_identity_provider_id
 }
 
-output "service_account_email" {
-  description = "Service account email for GitHub Actions"
-  value       = module.iam.service_account_email
+output "workload_identity_pool" {
+  description = "Workload Identity Pool ID"
+  value       = module.workload_identity.workload_identity_pool_id
 }
