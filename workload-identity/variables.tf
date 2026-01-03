@@ -3,11 +3,6 @@ variable "project_id" {
   type        = string
 }
 
-variable "service_account_id" {
-  description = "Fully qualified service account name (e.g., projects/PROJECT_ID/serviceAccounts/SA_EMAIL)"
-  type        = string
-}
-
 variable "github_repository" {
   description = "GitHub repository in format 'owner/repo' (e.g., 'myorg/myrepo')"
   type        = string
