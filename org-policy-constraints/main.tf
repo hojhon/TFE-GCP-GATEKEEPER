@@ -29,9 +29,7 @@ resource "google_organization_policy" "bucket_public_access_prevention" {
   org_id     = var.organization_id
   constraint = "storage.publicAccessPrevention"
 
-  list_policy {
-    allow {
-      values = ["enforced"]
-    }
+  boolean_policy {
+    enforced = true
   }
 }
