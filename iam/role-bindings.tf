@@ -11,3 +11,9 @@ resource "google_organization_iam_member" "org_viewer" {
   member = "serviceAccount:${google_service_account.service_accounts.email}"
 }
 
+resource "google_organization_iam_member" "org_iam_viewer" {
+  org_id = var.organization_id
+  role   = "roles/resourcemanager.organizationViewer"
+  member = "serviceAccount:${google_service_account.service_accounts.email}"
+}
+
