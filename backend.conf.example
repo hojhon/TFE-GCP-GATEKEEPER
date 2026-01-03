@@ -1,5 +1,0 @@
-# Backend configuration for GCS
-# Copy this file to backend.conf and update with your values
-
-bucket = "terraform-state-YOUR-PROJECT-ID"
-prefix = "gcp-org-policies/state"
